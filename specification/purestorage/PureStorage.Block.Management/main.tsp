@@ -744,6 +744,7 @@ model AvsDiskDetails {
 
 @armResourceOperations
 interface AvsStorageContainerVolumes {
+  #suppress "@typespec/http/deprecated-implicit-optionality" "Legacy implicit optionality - DO NOT COPY"
   @doc("Update a volume in an AVS storage container")
   @patch(#{ implicitOptionality: true })
   update is ArmCustomPatchAsync<
@@ -861,6 +862,7 @@ union VolumeContainerType {
 
 @armResourceOperations
 interface AvsVms {
+  #suppress "@typespec/http/deprecated-implicit-optionality" "Legacy implicit optionality - DO NOT COPY"
   @doc("Update an AVS VM")
   @patch(#{ implicitOptionality: true })
   update is ArmCustomPatchAsync<
@@ -893,6 +895,7 @@ model AvsVmVolume is ProxyResource<VolumeProperties> {
 
 @armResourceOperations
 interface AvsVmVolumes {
+  #suppress "@typespec/http/deprecated-implicit-optionality" "Legacy implicit optionality - DO NOT COPY"
   @doc("Update a volume in an AVS VM")
   @patch(#{ implicitOptionality: true })
   update is ArmCustomPatchAsync<
@@ -1023,6 +1026,7 @@ interface VolumeGroups {
   get is ArmResourceRead<VolumeGroup>;
   @doc("Create a volume group")
   create is ArmResourceCreateOrUpdateAsync<VolumeGroup>;
+  #suppress "@typespec/http/deprecated-implicit-optionality" "Legacy implicit optionality - DO NOT COPY"
   @doc("Update a volume group")
   @patch(#{ implicitOptionality: true })
   update is ArmCustomPatchAsync<
@@ -1108,6 +1112,7 @@ interface Volumes {
   get is ArmResourceRead<Volume>;
   @doc("Create a volume")
   create is ArmResourceCreateOrUpdateAsync<Volume>;
+  #suppress "@typespec/http/deprecated-implicit-optionality" "Legacy implicit optionality - DO NOT COPY"
   @doc("Update a volume")
   @patch(#{ implicitOptionality: true })
   update is ArmCustomPatchAsync<

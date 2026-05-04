@@ -65,6 +65,7 @@ interface Ingestions {
   } | ErrorResponse;
 
   #suppress "@azure-tools/typespec-azure-core/use-standard-operations" "This is an existing service operation."
+  #suppress "@typespec/http/deprecated-implicit-optionality" "Legacy implicit optionality - DO NOT COPY"
   @doc("Update an existing ingestion")
   @route("/inma/collections/{collectionId}/ingestions/{ingestionId}")
   @patch(#{ implicitOptionality: true })
@@ -528,6 +529,7 @@ interface StacItems {
   } | ErrorResponse;
 
   #suppress "@azure-tools/typespec-azure-core/use-standard-operations" "This is an existing service operation."
+  #suppress "@typespec/http/deprecated-implicit-optionality" "Legacy implicit optionality - DO NOT COPY"
   @doc("Update a STAC item in a collection")
   @route("/stac/collections/{collectionId}/items/{itemId}")
   @patch(#{ implicitOptionality: true })

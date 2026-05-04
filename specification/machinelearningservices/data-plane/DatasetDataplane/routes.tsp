@@ -117,6 +117,7 @@ interface DataContainerOps {
 
   /** Modify a data container. */
   #suppress "@azure-tools/typespec-azure-core/use-standard-operations" "Existing non-standard API."
+  #suppress "@typespec/http/deprecated-implicit-optionality" "Legacy implicit optionality - DO NOT COPY"
   @route("/data/v1.0/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.MachineLearningServices/workspaces/{workspaceName}/datacontainer/{name}")
   @patch(#{ implicitOptionality: true })
   modifyDataContainer is Azure.Core.Foundations.Operation<
@@ -278,6 +279,7 @@ interface DataVersionOps {
 
   /** Modify a data version. */
   #suppress "@azure-tools/typespec-azure-core/use-standard-operations" "Existing non-standard API."
+  #suppress "@typespec/http/deprecated-implicit-optionality" "Legacy implicit optionality - DO NOT COPY"
   @route("/data/v1.0/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.MachineLearningServices/workspaces/{workspaceName}/dataversion/{name}/versions/{version}")
   @patch(#{ implicitOptionality: true })
   modify is Azure.Core.Foundations.Operation<
