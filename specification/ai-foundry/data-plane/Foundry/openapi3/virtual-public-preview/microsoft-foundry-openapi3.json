@@ -20749,7 +20749,8 @@
             "type": "string",
             "enum": [
               "user_profile",
-              "chat_summary"
+              "chat_summary",
+              "procedural"
             ]
           }
         ],
@@ -21070,8 +21071,7 @@
         "type": "object",
         "required": [
           "user_profile_enabled",
-          "chat_summary_enabled",
-          "procedural_memory_enabled"
+          "chat_summary_enabled"
         ],
         "properties": {
           "user_profile_enabled": {
@@ -21093,10 +21093,11 @@
             "description": "Whether to enable procedural memory extraction and storage. Default is true.",
             "default": true
           },
-          "chat_summary_ttl_days": {
+          "default_ttl_seconds": {
             "type": "integer",
             "format": "int32",
-            "description": "The time-to-live for chat summary memories in days."
+            "description": "The default time-to-live for memories in seconds.  A value of 0 indicates that memories do not expire.",
+            "default": 0
           }
         },
         "description": "Default memory store configurations.",
