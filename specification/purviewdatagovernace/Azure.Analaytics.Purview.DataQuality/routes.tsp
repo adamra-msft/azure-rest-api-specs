@@ -1838,8 +1838,8 @@ namespace PurviewDataQuality {
       businessDomainId: string;
 
       @doc("Comma-separated list of asset identifiers to get scores for. Required.")
-      @query("assetIdString")
-      assetIdString: string;
+      @query("assetId")
+      assetId: string;
 
       @doc("For assets not associated with any Data Product, use Guid.Empty for dataProductId. Optional.")
       @query("dataProductId")
