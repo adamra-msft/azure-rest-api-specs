@@ -58,5 +58,6 @@ enum Versions {
   /**
    * The 2025-01-01 API version.
    */
+  #suppress "@azure-tools/typespec-azure-resource-manager/version-progression" "Legacy"
   v2025_01_01: "2025-01-01",
 }
