@@ -97,6 +97,13 @@ namespace Azure.AI.Projects;
 @@clientName(Schedules.getRun, "getScheduleRun");
 @@clientName(Schedules.listRuns, "listScheduleRuns");
 
+//Evaluator generation jobs
+@@clientName(EvaluatorGenerationJobs.create, "createGenerationJob");
+@@clientName(EvaluatorGenerationJobs.get, "getGenerationJob");
+@@clientName(EvaluatorGenerationJobs.list, "listGenerationJobs");
+@@clientName(EvaluatorGenerationJobs.cancel, "cancelGenerationJob");
+@@clientName(EvaluatorGenerationJobs.delete, "deleteGenerationJob");
+
 // --------------------------------------------------------------------------------
 // Renames - models
 // --------------------------------------------------------------------------------
