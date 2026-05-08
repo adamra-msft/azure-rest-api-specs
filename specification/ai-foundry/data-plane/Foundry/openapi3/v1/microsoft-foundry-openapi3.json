@@ -19239,6 +19239,21 @@
         ],
         "description": "Managed Azure AI Search Index Definition"
       },
+      "McpToolConfig": {
+        "type": "object",
+        "properties": {
+          "pin": {
+            "type": "boolean",
+            "description": "When true, the tool is always included in agent context and visible in `tools/list`.\nWhen false (default), the tool is hidden from `tools/list` and only discoverable via `tool_search`."
+          },
+          "additional_search_text": {
+            "type": "string",
+            "maxLength": 1000,
+            "description": "Additional text indexed for tool_search. Supplements the native MCP tool description\nto improve discoverability. Does not alter `tools/list` output."
+          }
+        },
+        "description": "Per-tool configuration for an MCP tool within a toolbox."
+      },
       "MemoryItem": {
         "type": "object",
         "required": [
@@ -33277,6 +33292,13 @@
           "project_connection_id": {
             "type": "string",
             "description": "The connection ID in the project for the MCP server. The connection stores authentication and other connection details needed to connect to the MCP server."
+          },
+          "tool_configs": {
+            "type": "object",
+            "additionalProperties": {
+              "$ref": "#/components/schemas/McpToolConfig"
+            },
+            "description": "Per-tool configuration map. Keys are MCP tool names or `*` (catch-all).\nResolution order: exact name match takes precedence over `*`.\nUnknown tool names are silently ignored at runtime."
           }
         },
         "allOf": [

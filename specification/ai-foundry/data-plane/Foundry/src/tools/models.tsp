@@ -51,8 +51,33 @@ namespace Azure.AI.Projects {
        * The connection ID in the project for the MCP server. The connection stores authentication and other connection details needed to connect to the MCP server.
        */
       project_connection_id?: string,
+
+      /**
+       * Per-tool configuration map. Keys are MCP tool names or `*` (catch-all).
+       * Resolution order: exact name match takes precedence over `*`.
+       * Unknown tool names are silently ignored at runtime.
+       */
+      tool_configs?: Record<McpToolConfig>,
     }
   );
+
+  /**
+   * Per-tool configuration for an MCP tool within a toolbox.
+   */
+  model McpToolConfig {
+    /**
+     * When true, the tool is always included in agent context and visible in `tools/list`.
+     * When false (default), the tool is hidden from `tools/list` and only discoverable via `tool_search`.
+     */
+    pin?: boolean;
+
+    /**
+     * Additional text indexed for tool_search. Supplements the native MCP tool description
+     * to improve discoverability. Does not alter `tools/list` output.
+     */
+    @maxLength(1000)
+    additional_search_text?: string;
+  }
 
   #suppress "@azure-tools/typespec-azure-core/experimental-feature" "Using experimental feature"
   @@copyProperties(OpenAI.WebSearchTool,
